@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список студентов</title>
+    <script defer src="Data.js"></script>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <div class="mb-3, container">
+    <form action="#" id="form">
+            <h2 class="head-1">Форма ввода студентов</h2>
+            <div class="mb-3">
+              <input class="form-control" type="text" id="name-inp" placeholder="Имя">
+            </div>
+            <div class="mb-3">
+                <input class="form-control" type="text" id="family-inp" placeholder="Фамилия">
+              </div>
+              <div class="mb-3">
+                <input class="form-control" type="text" id="surname-inp" placeholder="Отчество">
+              </div>
+              <div class="mb-3">
+                <input class="form-control" type="date" id="bithday" placeholder="Дата рождения">
+              </div>
+              <div class="mb-3">
+                <input class="form-control" type="text" id="year" placeholder="Год начала обучения">
+              </div>
+              <div class="mb-3">
+                <input class="form-control" type="text" id="fakultet" placeholder="Факультет">
+              </div>
+              <button type="submit" id="clearButton" class="btn-btn-primary">Добавить</button>
+          </form>
+          <form action="#" id="filter_form" class="mb-3">
+            <h2 class="headliner">Фильтрация</h2>
+          <div class="mb-3">
+            <input class="form-control mb-3" type="text" id="filter_fio" placeholder="ФИО">
+          </div>
+          <div class="mb-3">
+              <input class="form-control mb-3" type="text" id="filter_fakulty" placeholder="Факультет">
+            </div>
+            <div class="mb-3">
+              <input class="form-control mb-3" type="text" id="filter_start_year" placeholder="Год начала обучения">
+            </div>
+            <div class="mb-3">
+              <input class="form-control mb-3" type="text" id="filter_end_year" placeholder="Год окончания обучения">
+            </div>
+        </form>
+          <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th><button id="btn_sort_FIO" class="btn_sort_FIO">ФИО</button></th>
+                    <th><button id="btn_sort_Birthday" class="btn_sort_Date">Дата рождения</button></th>
+                    <th><button id="btn_sort_fakulty" class="btn_sort_fakulty">Факультет</button></th>
+                    <th><button id="btn_sort_year" class="btn_sort_year">Год поступления</button></th>
+                </tr>
+            </thead>
+            <tbody id="idstudents">
+                <tr>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+</body>
+</html>

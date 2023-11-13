@@ -1,0 +1,66 @@
+.table {
+    margin: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    border-collapse: collapse;
+  }
+.table td,
+.table th {
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+}
+.table thead {
+    background-color: #f0f1f4;
+  }
+  .form-control{
+    text-align: center;
+    margin:0 auto;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    width: 300px;
+  }
+  .btn-btn-primary{
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: blueviolet;
+    margin:0 auto;
+    display: block
+  }
+.placeholder{
+    margin:0 auto;
+}
+.filtr_fio{
+    margin: 0 auto;
+    display: block;
+    width: 150px;
+    height: 30px;
+}
+.filtr_fakulty{
+    margin: 0 auto;
+    display: block;
+    width: 150px;
+    height: 30px;
+}
+.filtr_start_year{
+    margin: 0 auto;
+    display: block;
+    width: 150px;
+    height: 30px;
+}
+.filtr_end_year{
+    margin: 0 auto;
+    display: block;
+    width: 150px;
+    height: 30px;
+}
+.headliner{
+    text-align: center;
+}
+.head-1{
+    text-align: center;
+}

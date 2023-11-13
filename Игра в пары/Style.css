@@ -1,0 +1,41 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.game{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 40px 15px;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 240px;
+    padding:30px;
+    background-color: aqua;
+    color: transparent;
+    font-size: 0px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.card:hover{
+    background-color: rgb(red, green, blue);
+}
+.card:active{
+    background-color: rgb(red, green, blue);
+}
+.open{
+    font-size: 36px;
+    color:beige;
+    background-color: blue;
+    cursor: pointer;
+}
+.success{
+    font-size: 36px;
+    color:beige;
+    background-color: rgb(255, 136, 0);
+    cursor: pointer;
+}
