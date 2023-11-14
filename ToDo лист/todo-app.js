@@ -1,6 +1,6 @@
 (function(){
-    let ListArray = [];
-    let ListName = ''
+    let listArray = [];
+    let listName = ''
     function createAppTitle(title) {// создаём и возвращаем заголовок приложения
         let appTitle = document.createElement('h2');
         appTitle.innerHTML = title;
@@ -58,20 +58,20 @@
         doneButton.addEventListener('click', function(){
             item.classList.toggle('list-group-item-success');
             
-            for(const listItem of ListArray) {
+            for(const listItem of listArray) {
                 if(listItem.id == obj.id) listItem.done = !listItem.done
             }
-            savelist(ListArray,ListName)
+            savelist(listArray,listName)
         });
         deleteButton.addEventListener('click', function(){
             if(confirm('Вы уверены?')){
                 item.remove();
                 
-                for(let i=0; i<ListArray.length;i++){
-                    if(ListArray[i].id == obj.id) ListArray.splice(i,1)
+                for(let i=0; i<listArray.length;i++){
+                    if(listArray[i].id == obj.id) listArray.splice(i,1)
                 }
             }
-            savelist(ListArray,ListName)
+            savelist(listArray,listName)
         });
         buttonGroup.append(doneButton);
         buttonGroup.append(deleteButton);
@@ -83,13 +83,6 @@
             deleteButton,
         };
     }
-    function getNewID(arr){
-        let max=0;
-        for(const item of arr){
-            if(item.id>max) max=item.id
-        }
-        return max+1;
-    }
     function savelist(arr, keyName){
         localStorage.setItem(keyName, JSON.stringify(arr));
     }
@@ -97,13 +90,13 @@
         let todoAppTitle = createAppTitle(title);
         let todoItemForm = createTodoItemForm();
         let todoList = createTodoList();
-        ListName = keyName;
-        ListArray = defArray;
+        listName = keyName;
+        listArray = defArray;
         container.append(todoAppTitle);
         container.append(todoItemForm.form);
         container.append(todoList);
 
-        let localData = localStorage.getItem(ListName)
+        let localData = localStorage.getItem(listName)
         
         if(localData !== null && localData !== '') ListArray = JSON.parse(localData)
 
@@ -130,11 +123,11 @@
             }
             
             let newItem = {
-                id:getNewID(ListArray),
+                id:listArray.length+1,
                 name:todoItemForm.input.value,
                 done: false
             }
-            savelist(ListArray,ListName)
+            savelist(ListArray,listName)
             let todoItem = createTodoItem(newItem);
             ListArray.push(newItem);
         
