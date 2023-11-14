@@ -134,9 +134,9 @@
                 name:todoItemForm.input.value,
                 done: false
             }
-            savelist(ListArray,ListName)
             let todoItem = createTodoItem(newItem);
             ListArray.push(newItem);
+            savelist(ListArray,ListName)
         
             todoList.append(todoItem.item);
             todoItemForm.input.value = '';
