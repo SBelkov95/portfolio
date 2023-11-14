@@ -78,9 +78,7 @@
         item.append(buttonGroup);
         //приложению нужен доступ к самому элементу и кнопкам, чтобы обрабатывать события нажатия
         return{
-            item,
-            doneButton,
-            deleteButton,
+            item
         };
     }
     function savelist(arr, keyName){
@@ -127,9 +125,9 @@
                 name:todoItemForm.input.value,
                 done: false
             }
-            savelist(ListArray,listName)
             let todoItem = createTodoItem(newItem);
             ListArray.push(newItem);
+            savelist(ListArray,listName)
         
             todoList.append(todoItem.item);
             todoItemForm.input.value = '';
