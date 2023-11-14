@@ -70,8 +70,8 @@
                 for(let i=0; i<listArray.length;i++){
                     if(listArray[i].id == obj.id) listArray.splice(i,1)
                 }
+                savelist(listArray,listName)
             }
-            savelist(listArray,listName)
         });
         buttonGroup.append(doneButton);
         buttonGroup.append(deleteButton);
