@@ -78,17 +78,8 @@
         item.append(buttonGroup);
         //приложению нужен доступ к самому элементу и кнопкам, чтобы обрабатывать события нажатия
         return{
-            item,
-            doneButton,
-            deleteButton,
+            item
         };
-    }
-    function getNewID(arr){
-        let max=0;
-        for(const item of arr){
-            if(item.id>max) max=item.id
-        }
-        return max+1;
     }
     function savelist(arr, keyName){
         localStorage.setItem(keyName, JSON.stringify(arr));
@@ -130,7 +121,7 @@
             }
             
             let newItem = {
-                id:getNewID(listArray),
+                id:ListArray.length+1,
                 name:todoItemForm.input.value,
                 done: false
             }
