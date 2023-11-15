@@ -48,6 +48,7 @@ let students = [
 //Функция расчёта возраста студентов
 function calculateAge () {
     let birthDate = new Date(obj.birthday);
+    //Исправил
     let otherDate = new Date();
     const years = (otherDate.getFullYear() - birthDate.getFullYear());
     if (otherDate.getMonth() < birthDate.getMonth() ||
