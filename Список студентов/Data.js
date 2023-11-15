@@ -46,6 +46,7 @@ let students = [
      },
 ]
 //Функция расчёта возраста студентов
+//Исправил неиспользуемые аргументы
 function calculateAge () {
     let birthDate = new Date(obj.birthday);
     let otherDate = new Date();
