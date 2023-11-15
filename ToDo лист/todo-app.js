@@ -110,6 +110,7 @@
             todoItemForm.button.disabled = false;
             }
         });
+        function handleSuccess(){
         //браузер создаёт событие submit на форме по нажатию на Enter или на кнопку создания дела
         todoItemForm.form.addEventListener('submit', function(e){
             //эта строчка необходима, чтобы предотвартить стандартное действия браузера
@@ -132,8 +133,8 @@
             todoList.append(todoItem.item);
             todoItemForm.input.value = '';
             todoItemForm.button.disabled = true;
-        });
-           
+        });   
        }
+    }
     window.createTodoApp = createTodoApp;
 })();
