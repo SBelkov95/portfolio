@@ -135,6 +135,7 @@
             todoItemForm.button.disabled = true;
         });   
        }
+       handleSuccess()
     }
     window.createTodoApp = createTodoApp;
 })();
