@@ -106,6 +106,7 @@ function formatDate(date) {
         if(filterFio.value.trim() !== ""){
         for(const oneUser of copyArr){
             copyArr = copyArr.filter(function(oneUser) {
+                //Исправлено. Поиск по Фамилии Имени и Отчеству
                 if((oneUser.name.toLowerCase().includes(filterFio.value.toLowerCase().trim()))
                 ||(oneUser.surname.toLowerCase().includes(filterFio.value.toLowerCase().trim()))
                 ||(oneUser.middlename.toLowerCase().includes(filterFio.value.toLowerCase().trim()))){
