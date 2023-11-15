@@ -46,10 +46,10 @@ let students = [
      },
 ]
 //Функция расчёта возраста студентов
-function calculateAge (birthDate, otherDate) {
-    birthDate = new Date(obj.birthday);
-    otherDate = new Date(2023, 11, 8);
-    var years = (otherDate.getFullYear() - birthDate.getFullYear());
+function calculateAge () {
+    let birthDate = new Date(obj.birthday);
+    let otherDate = new Date();
+    const years = (otherDate.getFullYear() - birthDate.getFullYear());
     if (otherDate.getMonth() < birthDate.getMonth() ||
         otherDate.getMonth() == birthDate.getMonth() && otherDate.getDate() < birthDate.getDate()) {
         years--;
@@ -78,15 +78,6 @@ function formatDate(date) {
         const tdBirthday = document.createElement("td")
         const tdfaculty = document.createElement("td")
         const tdDate = document.createElement("td")
-        sortFIOBtn = document.getElementById("btn_sort_FIO")
-        sortAgeBtn = document.getElementById("btn_sort_Birthday")
-        sortFakultyBtn = document.getElementById("btn_sort_fakulty")
-        sortYearBtn = document.getElementById("btn_sort_year")
-        filterFormid = document.getElementById("filter_form")
-        filterFio = document.getElementById("filter_fio")
-        filterFakulty = document.getElementById("filter_fakulty")
-        filterStartYear = document.getElementById("filter_start_year")
-        filterEndYear = document.getElementById("filter_end_year")
         tdFIO.textContent = `${obj.surname} ${obj.name} ${obj.middlename}`
         tdBirthday.textContent = `${formatDate(obj.birthday)} ${calculateAge()} ${"лет"}`
         tdfaculty.textContent = obj.faculty
@@ -115,16 +106,18 @@ function formatDate(date) {
         if(filterFio.value.trim() !== ""){
         for(const oneUser of copyArr){
             copyArr = copyArr.filter(function(oneUser) {
-                if(oneUser.surname.includes(filterFio.value.trim())){
+                if((oneUser.name.toLowerCase().includes(filterFio.value.toLowerCase().trim()))
+                ||(oneUser.surname.toLowerCase().includes(filterFio.value.toLowerCase().trim()))
+                ||(oneUser.middlename.toLowerCase().includes(filterFio.value.toLowerCase().trim()))){
                 return true
                 }
             });
+            }
         }
-    }
     if(filterFakulty.value.trim() !== ""){
         for(const oneUser of copyArr){
             copyArr = copyArr.filter(function(oneUser) {
-                if(oneUser.faculty.includes(filterFakulty.value.trim())){
+                if(oneUser.faculty.toLowerCase().includes(filterFakulty.value.toLowerCase().trim())){
                 return true
                 }
             });
@@ -184,6 +177,14 @@ function formatDate(date) {
             alert("Нет значения в поле дата поступления!")
             return
         }
+        if(document.getElementById("bithday").value.trim() >= new Date(1900,1,1)){
+            alert("Не корректное значение даты рождения!")
+            return
+        }
+        if(Number(document.getElementById("year").value.trim()) <= 2000){
+            alert("Не корректное значение даты поступления!")
+            return
+        }
         let addStudentObj = {
             name: document.getElementById("name-inp").value.trim(),
             surname : document.getElementById("family-inp").value.trim(),
@@ -198,6 +199,10 @@ function formatDate(date) {
         render(students)
         form.reset();
     })
+    let sortFIOBtn = document.getElementById("btn_sort_FIO")
+    let sortAgeBtn = document.getElementById("btn_sort_Birthday")
+    let sortFakultyBtn = document.getElementById("btn_sort_fakulty")
+    let sortYearBtn = document.getElementById("btn_sort_year")
     //создание клик
     sortFIOBtn.addEventListener('click', function(){
         sortColumnFlag = 'surname'
@@ -217,6 +222,11 @@ function formatDate(date) {
     })
 
     //фильтрация
+    let filterFormid = document.getElementById("filter_form")
+    let filterFio = document.getElementById("filter_fio")
+    let filterFakulty = document.getElementById("filter_fakulty")
+    let filterStartYear = document.getElementById("filter_start_year")
+    let filterEndYear = document.getElementById("filter_end_year")
    filterFormid.addEventListener("submit", function(event) {
         event.preventDefault()
     })
