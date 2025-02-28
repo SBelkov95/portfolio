@@ -104,7 +104,6 @@ function formatDate(date) {
         let filterStartYear = document.getElementById("filter_start_year")
         let filterEndYear = document.getElementById("filter_end_year")
         if(filterFio.value.trim() !== ""){
-        for(const oneUser of copyArr){
             copyArr = copyArr.filter(function(oneUser) {
                 if((oneUser.name.toLowerCase().includes(filterFio.value.toLowerCase().trim()))
                 ||(oneUser.surname.toLowerCase().includes(filterFio.value.toLowerCase().trim()))
@@ -112,34 +111,27 @@ function formatDate(date) {
                 return true
                 }
             });
-            }
         }
     if(filterFakulty.value.trim() !== ""){
-        for(const oneUser of copyArr){
             copyArr = copyArr.filter(function(oneUser) {
                 if(oneUser.faculty.toLowerCase().includes(filterFakulty.value.toLowerCase().trim())){
                 return true
                 }
             });
-        }
     }
     if(filterStartYear.value.trim() !== ""){
-        for(const oneUser of copyArr){
             copyArr = copyArr.filter(function(oneUser) {
                 if(oneUser.Date.toString().includes(filterStartYear.value.trim())){
                 return true
                 }
             });
-        }
     }
     if(filterEndYear.value.trim() !== ""){
-        for(const oneUser of copyArr){
             copyArr = copyArr.filter(function(oneUser) {
                 if(oneUser.EndDate.toString().includes(filterEndYear.value.trim())){
                 return true
                 }
             });
-        }
     }    
     const idstudents = document.getElementById("idstudents")
     idstudents.innerHTML = ''
